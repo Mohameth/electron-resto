@@ -5,13 +5,22 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Happy meal!</title>
   </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+  <>
+    <h1>Where do you want to it?</h1>
+
+    <div id="no-option-information">
+      <h3>It looks like there is no options!</h3>
+      <h4>Create one below</h4>
+    </div>
+    <div id="options">
+
+    </div>
+
+    <div>
+      <input id="new-option-value" /> <button id="new-option-button">Create a new option</button>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
