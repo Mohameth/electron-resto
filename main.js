@@ -1,7 +1,9 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
-const {ipcMain} = require('electron')
+const { readFileSync } = require('fs') // used to read files
+const { ipcMain } = require('electron') // used to communicate asynchronously from the main process to renderer processes.
+const { writeFileSync } = require('fs')
 
 function createWindow () {
   // Create the browser window.
@@ -43,3 +45,21 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+function readData() {
+  const data = readFileSync('./data.json', 'utf8')
+  return data
+}
+
+function storeData(data) {
+  writeFileSync('./data.json', 'data', 'utf8')
+}
+
+ipcMain.on('getData', (event, arg) => {
+  console.log(arg)
+  event.returnValue = readConfig()
+})
+
+ipcMain.on('storeData', (event, arg) => {
+  console.log(arg)
+  storeData(arg)
+})

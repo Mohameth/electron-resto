@@ -15,8 +15,24 @@ function newOption() {
         newOption.append(document.createTextNode(inputValue));
 
         document.getElementById("options").appendChild(newOption);
+        storeOptions(newOption);
     }
 
+}
+
+function storeOptions(data) {
+    //const remote = require('electron').remote;
+    //const fs = remote.require('fs');
+    //fs.writeFile('test.txt', 'Hello, I was written by the renderer process!');
+
+    const { ipcRenderer } = require('electron');
+    JSON.parse(ipcRenderer.sendSync('storeData', data));
+}
+
+function getOptions() {
+    const { ipcRenderer } = require('electron');
+    var data = JSON.parse(ipcRenderer.sendSync('getData', ''));
+    console.log(data);
 }
 
 document.querySelector('#new-option-button').addEventListener('click', () => {
