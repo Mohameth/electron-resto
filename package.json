@@ -1,0 +1,20 @@
+{
+  "name": "electron-resto",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/Mohameth/electron-resto",
+  "keywords": [
+    "Electron",
+    "eat",
+    "vote"
+  ],
+  "author": "Mohameth",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^10.1.4"
+  }
+}
